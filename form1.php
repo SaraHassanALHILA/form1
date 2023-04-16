@@ -31,6 +31,11 @@ if (isset($_POST['gender'])) {
 if (isset($_POST['remmberMe'])) {
      echo 'remmberMe';
 }
+
+$stmt = $conn->prepare("INSERT INTO MyGuests (name,password,email,gender,remmberme)
+VALUES (?, ?, ?,?,?)");
+$stmt->bind_param("sss", $name, $password, $email,$gender,$remmberme);
+
 $host="localhost";
 $username="root";
 $passwordDB='';
